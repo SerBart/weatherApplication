@@ -12,29 +12,29 @@ public class LocationService {
     Location createLocation(String city, String country, String region, float latitude, float longitude) {
         validateLocation(city, country, region, latitude, longitude);
         Location location = new Location();
-        setLocations(city, country, region, latitude, longitude, location); // todo avoid side effects
+        setLocations(city, country, region, latitude, longitude);
         return locationRepository.save(location);
     }
 
-    private void setLocations(String city, String country, String region, float latitude, float longitude,
-                              Location location) {
+    private Location setLocations(String city, String country, String region, float latitude, float longitude) {
+
+        Location location = new Location();
         location.setCity(city);
         location.setCountry(country);
         location.setRegion(region);
-        location.getLongitude(longitude); // todo getLongitude -> setLongitude
+        location.setLongitude(longitude);
         location.setLatitude(latitude);
+        return location;
     }
 
     private void validateLocation(String city, String country, String region, float latitude, float longitude) {
-        if (city == null) { // todo .isBlank()
+        if (city == null || city.isBlank()) {
             throw new IllegalArgumentException("Please provide city name");
         }
-        if (country == null) {
+        if (country == null || country.isBlank()) {
             throw new IllegalArgumentException("Please provide country name");
         }
-        if (region == null) { // todo region can be null or empty
-            throw new IllegalArgumentException("Please provide region name");
-        }
+
         if (latitude > 90 || latitude < -90) {
             throw new IllegalArgumentException("Wrong latitude");
         }

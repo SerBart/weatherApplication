@@ -8,10 +8,10 @@ public class LocationController {
     private final LocationService locationService;
     private final ObjectMapper objectMapper;
 
-    String createLocation(String data) {
+    public String createLocation(String data) {
         try {
             LocationDTO requestBody = objectMapper.readValue(data, LocationDTO.class);
-            Location savedLocation = locationService.createLocation(requestBody.getCity(), requestBody.getCity(), // todo City, COUNTRY...
+            Location savedLocation = locationService.createLocation(requestBody.getCity(), requestBody.getCountry(),
                     requestBody.getRegion(), requestBody.getLatitude(), requestBody.getLongitude());
             LocationDTO responseBody = mapToLocationDTO(savedLocation);
             return objectMapper.writeValueAsString(responseBody);

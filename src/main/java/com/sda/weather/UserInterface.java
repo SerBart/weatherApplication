@@ -1,8 +1,18 @@
 package com.sda.weather;
 
+import com.sda.weather.entry.LocationController;
+
 import java.util.Scanner;
 
 public class UserInterface {
+
+    private final LocationController locationController;
+
+    public UserInterface(LocationController locationController) {
+        this.locationController = locationController;
+
+    }
+
 
     public void run() {
         System.out.println("Cyber pogodynka :");
@@ -37,11 +47,11 @@ public class UserInterface {
         System.out.println("Dlugosc Geograficzna: ");
         float longitude = scanner.nextFloat();
 
-        // todo use lowercase, remove white characters, remove " character for longitude and latitude values
-        String request = String.format("{\"City \":\"%s\",\"Country \":\"%s\",\"Region\":\"%s\",\"Latitude\":\"%s\"" +
-                "Longitude\":\"%s\"", city, country, region, latitude, longitude);
+        String request = String.format("{\"city\":\"%s\",\"country\":\"%s\",\"region\":\"%s\",\"latitude\":\"%f\"" +
+                "longitude\":\"%f\"", city, country, region, latitude, longitude);
         System.out.println("Dodano pogodę dla " + request);
+        String response = locationController.createLocation(request);
+        System.out.println("odpowiedz serwera" + response);
 
-        // todo use LocationController
     }
 }
