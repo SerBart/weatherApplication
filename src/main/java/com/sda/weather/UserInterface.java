@@ -11,15 +11,12 @@ public class UserInterface {
 
         while(true){
             System.out.println("Podaj co chcesz zrobić: ");
-            System.out.println("1. Dodaj lokalizacje \n2. Wyswietl aktualne dane lokalizacji\n3. Pobierz wartosci " +
-                    "pogodowe");
+            System.out.println("0. Wyjdz z aplikacji");
 
             int option = scanner.nextInt();
 
             switch (option){
                 case 0:
-                    return;
-                case 1:
                     return;
             }
         }
