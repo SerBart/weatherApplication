@@ -10,7 +10,6 @@ public class LocationHibernateRepository implements LocationRepository {
 
     private final SessionFactory sessionFactory;
 
-
     @Override
     public Location save(Location Location) {
         Session session = sessionFactory.openSession();
@@ -19,6 +18,5 @@ public class LocationHibernateRepository implements LocationRepository {
         transaction.commit();
         session.close();
         return Location;
-
     }
 }

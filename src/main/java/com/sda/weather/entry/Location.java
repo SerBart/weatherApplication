@@ -7,10 +7,9 @@ import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
-
 @Data
 @Entity
-@Table(name = "Location")
+@Table(name = "Location") // todo prefer snake_case Location -> location
 public class Location {
 
     @Id
@@ -25,15 +24,15 @@ public class Location {
 
     private String region;
 
-    private Float latitude;
+    private Float latitude; // todo nullable = false
 
-    private Float longitude;
+    private Float longitude; // todo nullable = false
 
-    public Float getLongitude(float longitude) {
+    public Float getLongitude(float longitude) { // todo remove it
         return this.longitude;
     }
 
-    public void setLongitude(Float longitude) {
+    public void setLongitude(Float longitude) { // todo remove it
         this.longitude = longitude;
     }
 }

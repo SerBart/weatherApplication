@@ -1,7 +1,5 @@
 package com.sda.weather;
 
-import java.sql.SQLOutput;
-import java.util.Random;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -10,25 +8,23 @@ public class UserInterface {
         System.out.println("Cyber pogodynka :");
         Scanner scanner = new Scanner(System.in);
 
-        while(true){
+        while (true) {
             System.out.println("Podaj co chcesz zrobić: ");
             System.out.println("0. Wyjdz z aplikacji\n1. Dodaj nowa lokalizacja");
 
             int option = scanner.nextInt();
 
-            switch (option){
+            switch (option) {
                 case 1:
                     createEntry();
                     break;
                 case 0:
                     return;
-
             }
-
         }
     }
 
-    private void createEntry(){
+    private void createEntry() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Kraj: ");
         String country = scanner.nextLine();
@@ -41,9 +37,11 @@ public class UserInterface {
         System.out.println("Dlugosc Geograficzna: ");
         float longitude = scanner.nextFloat();
 
+        // todo use lowercase, remove white characters, remove " character for longitude and latitude values
         String request = String.format("{\"City \":\"%s\",\"Country \":\"%s\",\"Region\":\"%s\",\"Latitude\":\"%s\"" +
                 "Longitude\":\"%s\"", city, country, region, latitude, longitude);
         System.out.println("Dodano pogodę dla " + request);
 
+        // todo use LocationController
     }
 }

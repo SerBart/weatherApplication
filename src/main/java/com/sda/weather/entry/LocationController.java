@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-
 public class LocationController {
     private final LocationService locationService;
     private final ObjectMapper objectMapper;
@@ -12,7 +11,7 @@ public class LocationController {
     String createLocation(String data) {
         try {
             LocationDTO requestBody = objectMapper.readValue(data, LocationDTO.class);
-            Location savedLocation = locationService.createLocation(requestBody.getCity(), requestBody.getCity(),
+            Location savedLocation = locationService.createLocation(requestBody.getCity(), requestBody.getCity(), // todo City, COUNTRY...
                     requestBody.getRegion(), requestBody.getLatitude(), requestBody.getLongitude());
             LocationDTO responseBody = mapToLocationDTO(savedLocation);
             return objectMapper.writeValueAsString(responseBody);
@@ -20,7 +19,6 @@ public class LocationController {
             return String.format("{\"message\":\"%s\"}", e.getMessage());
         }
     }
-
 
     private LocationDTO mapToLocationDTO(Location savedLocation) {
         LocationDTO responseBody = new LocationDTO();

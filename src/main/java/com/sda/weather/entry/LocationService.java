@@ -5,18 +5,15 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class LocationService {
+
     private final LocationRepository locationRepository;
     private final ObjectMapper objectMapper;
 
     Location createLocation(String city, String country, String region, float latitude, float longitude) {
         validateLocation(city, country, region, latitude, longitude);
-
         Location location = new Location();
-
-        setLocations(city, country, region, latitude, longitude, location);
-
+        setLocations(city, country, region, latitude, longitude, location); // todo avoid side effects
         return locationRepository.save(location);
-
     }
 
     private void setLocations(String city, String country, String region, float latitude, float longitude,
@@ -24,18 +21,18 @@ public class LocationService {
         location.setCity(city);
         location.setCountry(country);
         location.setRegion(region);
-        location.getLongitude(longitude);
+        location.getLongitude(longitude); // todo getLongitude -> setLongitude
         location.setLatitude(latitude);
     }
 
     private void validateLocation(String city, String country, String region, float latitude, float longitude) {
-        if (city == null) {
+        if (city == null) { // todo .isBlank()
             throw new IllegalArgumentException("Please provide city name");
         }
         if (country == null) {
             throw new IllegalArgumentException("Please provide country name");
         }
-        if (region == null) {
+        if (region == null) { // todo region can be null or empty
             throw new IllegalArgumentException("Please provide region name");
         }
         if (latitude > 90 || latitude < -90) {

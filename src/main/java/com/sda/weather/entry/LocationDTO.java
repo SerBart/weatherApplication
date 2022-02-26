@@ -2,11 +2,6 @@ package com.sda.weather.entry;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-import static javax.persistence.GenerationType.IDENTITY;
 @Data
 public class LocationDTO {
 
@@ -21,6 +16,4 @@ public class LocationDTO {
     private Float latitude;
 
     private Float longitude;
-
-
 }
