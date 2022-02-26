@@ -47,8 +47,8 @@ public class UserInterface {
         System.out.println("Dlugosc Geograficzna: ");
         Float longitude = scanner.nextFloat();
 
-        String request = String.format("{\"city\":\"%s\",\"country\":\"%s\",\"region\":\"%s\",\"latitude\":\"%f\"" +
-                "longitude\":\"%f\"", city, country, region, latitude, longitude);
+        String request = String.format("{\"city\":\"%s\",\"country\":\"%s\",\"region\":\"%s\",\"latitude\":\"%s\"," +
+                "\"longitude\":\"%s\"}", city, country, region, latitude, longitude);
         System.out.println("Dodano pogodę dla " + request);
         String response = locationController.createLocation(request);
         System.out.println("odpowiedz serwera" + response);

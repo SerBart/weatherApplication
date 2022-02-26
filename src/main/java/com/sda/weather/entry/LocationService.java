@@ -11,8 +11,7 @@ public class LocationService {
 
     Location createLocation(String city, String country, String region, Float latitude, Float longitude) {
         validateLocation(city, country, region, latitude, longitude);
-        Location location = new Location();
-        setLocations(city, country, region, latitude, longitude);
+        Location location = setLocations(city, country, region, latitude, longitude);
         return locationRepository.save(location);
     }
 
@@ -38,7 +37,7 @@ public class LocationService {
         if (latitude > 90 || latitude < -90) {
             throw new IllegalArgumentException("Wrong latitude");
         }
-        if (longitude > 180 || longitude < 180) {
+        if (longitude > 180 || longitude < -180) {
             throw new IllegalArgumentException("Wrong longitude");
         }
     }
