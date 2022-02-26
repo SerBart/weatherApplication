@@ -43,9 +43,9 @@ public class UserInterface {
         System.out.println("Region: ");
         String region = scanner.next();
         System.out.println("Szerokosc geograficzna: ");
-        float latitude = scanner.nextFloat();
+        Float latitude = scanner.nextFloat();
         System.out.println("Dlugosc Geograficzna: ");
-        float longitude = scanner.nextFloat();
+        Float longitude = scanner.nextFloat();
 
         String request = String.format("{\"city\":\"%s\",\"country\":\"%s\",\"region\":\"%s\",\"latitude\":\"%f\"" +
                 "longitude\":\"%f\"", city, country, region, latitude, longitude);

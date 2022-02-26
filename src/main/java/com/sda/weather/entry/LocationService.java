@@ -9,14 +9,14 @@ public class LocationService {
     private final LocationRepository locationRepository;
     private final ObjectMapper objectMapper;
 
-    Location createLocation(String city, String country, String region, float latitude, float longitude) {
+    Location createLocation(String city, String country, String region, Float latitude, Float longitude) {
         validateLocation(city, country, region, latitude, longitude);
         Location location = new Location();
         setLocations(city, country, region, latitude, longitude);
         return locationRepository.save(location);
     }
 
-    private Location setLocations(String city, String country, String region, float latitude, float longitude) {
+    private Location setLocations(String city, String country, String region, Float latitude, Float longitude) {
 
         Location location = new Location();
         location.setCity(city);
