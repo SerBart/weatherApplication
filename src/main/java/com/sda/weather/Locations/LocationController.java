@@ -1,7 +1,10 @@
-package com.sda.weather.entry;
+package com.sda.weather.Locations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+
 
 @RequiredArgsConstructor
 public class LocationController {

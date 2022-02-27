@@ -2,20 +2,21 @@ package com.sda.weather;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sda.weather.entry.LocationController;
-import com.sda.weather.entry.LocationHibernateRepository;
-import com.sda.weather.entry.LocationRepository;
-import com.sda.weather.entry.LocationService;
+import com.sda.weather.Locations.LocationController;
+import com.sda.weather.Locations.LocationHibernateRepository;
+import com.sda.weather.Locations.LocationRepository;
+import com.sda.weather.Locations.LocationService;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+@RequiredArgsConstructor
 public class Application {
 
     public static void main(String[] args) {
         System.out.println("Michal tu byl");
-        UserInterface userInterface = new UserInterface();
 
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure()

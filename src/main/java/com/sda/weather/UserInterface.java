@@ -1,6 +1,7 @@
 package com.sda.weather;
 
-import com.sda.weather.entry.LocationController;
+import com.sda.weather.Locations.LocationController;
+import lombok.NoArgsConstructor;
 
 import java.util.Scanner;
 
@@ -25,9 +26,8 @@ public class UserInterface {
             int option = scanner.nextInt();
 
             switch (option) {
-            switch (option) {
                 case 1:
-                    createEntry();
+                    createLocation();
                     break;
                 case 0:
                     return;
@@ -35,7 +35,8 @@ public class UserInterface {
         }
     }
 
-    private void createEntry() {
+
+    private void createLocation() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Kraj: ");
         String country = scanner.nextLine();
@@ -53,6 +54,5 @@ public class UserInterface {
         System.out.println("Dodano pogodę dla " + request);
         String response = locationController.createLocation(request);
         System.out.println("odpowiedz serwera" + response);
-
     }
 }

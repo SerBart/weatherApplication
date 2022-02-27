@@ -1,4 +1,4 @@
-package com.sda.weather.entry;
+package com.sda.weather.Locations;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

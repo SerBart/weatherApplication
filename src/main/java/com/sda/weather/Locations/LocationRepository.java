@@ -1,4 +1,4 @@
-package com.sda.weather.entry;
+package com.sda.weather.Locations;
 
 public interface LocationRepository {
 
