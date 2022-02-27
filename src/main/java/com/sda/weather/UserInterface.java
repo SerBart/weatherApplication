@@ -25,6 +25,7 @@ public class UserInterface {
             int option = scanner.nextInt();
 
             switch (option) {
+            switch (option) {
                 case 1:
                     createEntry();
                     break;
